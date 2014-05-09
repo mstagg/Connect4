@@ -14,9 +14,15 @@ To Do:
 *Add AI class for computer opponent
 
 *Add capability to play against computer
+
 *Add varying difficulties
+
 *Add AI simulations (computer vs. computer)
+
 *Add instructions
+
 *Add play again loop
+
 *Add random play order
+
 *Clean up UI
