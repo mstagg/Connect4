@@ -10,8 +10,10 @@ In addition, the project has evolved into exploring classes and AI algorithms in
 See changelog for list of changes and bug fixes (post v0.1).
 
 To Do:
-\n*Add AI class for computer opponent
-\n*Add capability to play against computer
+
+*Add AI class for computer opponent
+
+*Add capability to play against computer
 *Add varying difficulties
 *Add AI simulations (computer vs. computer)
 *Add instructions
