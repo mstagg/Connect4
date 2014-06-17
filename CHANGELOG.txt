@@ -1,0 +1,5 @@
+v 0.02
+6/17/2014
+
+*Implemented proper OOP structure
+*Added board class
