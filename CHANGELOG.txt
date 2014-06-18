@@ -3,3 +3,11 @@ v 0.02
 
 *Implemented proper OOP structure
 *Added board class
+
+v 0.03
+6/18/2014
+
+*Added (non-optimized) AI class
+*Added capability to play against (non-optimized) computer AI
+*Console no longer autocloses at end of game
+*Minor tweaks and bugfixes in Board class

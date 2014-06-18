@@ -1,8 +1,10 @@
+#For use with Connect Four
+#Contains classes and methods that interact directly with the game board
+
 class Board:
 
 #Instantiate new board
 	def __init__(self):
-		print('NewBoard')
 		global board
 		board = []
 		for n in range(7):
@@ -10,7 +12,6 @@ class Board:
 	
 #Prints the board in current state
 	def PrintBoard(self):
-		print('PrintBoard')
 		x = 0
 		y = 0
 		for val in board[x]:
@@ -25,29 +26,79 @@ class Board:
 		print('=============================')
 		print('| 1 | 2 | 3 | 4 | 5 | 6 | 7 |\n')
 	
+#Change point on board to a given value
+	def Modify(self, x, y, val):
+		board[x][y] = val
+
+#Check if point on board is equal to given value
+#If point is equal to value, return True
+#Else, return False
+	def Check(self, x, y, val):
+		if board[x][y] == val:
+			return True
+		else:
+			return False
+
+#Check if column is full
+#If yes, return True
+#Else, return False				
+	def ColumnFull(self, column):
+		if board[column][0] != ' ':
+			return True
+		else:
+			return False
+
 #Select column to drop piece
 #If column is full, return False
 #Else, return True	
 	def Move(self, player, column):
-		print('PlayerMove')
-		if player == 1:
-			piece = 'X'
-		elif player == 2:
-			piece = 'O'
-		if board[column][0] != ' ':
+		if self.ColumnFull(column) == False:
+			if player == 1:
+				piece = 'X'
+			elif player == 2:
+				piece = 'O'
+			row = 6
+			while(row >= 0):
+				row -= 1
+				if board[column][row] == ' ':
+					board[column][row] = piece
+					break
+
+#Used by AI to check moves
+#Removes the top piece in a given row
+	def UndoMove(self, column):
+		row = 0
+		while(row <= 5):
+			if board[column][row] == ' ':
+				row += 1
+			else:
+				board[column][row] = ' '
+				break
+	
+#Used by AI to get top piece in a given row
+#Returns the y-value of the top piece in a given row
+	def GetTop(self, column):
+		row = 0
+		while(row <= 5):
+			if board[column][row] == ' ':
+				row += 1
+			else:
+				return row
+		return row
+
+#Check if entire board is full
+#If yes, return True
+#Else, return False
+	def BoardFull(self):
+		if board[0][0] != ' ' and board[1][0] != ' ' and board[2][0] != ' ' and board[3][0] != ' ' and board[4][0] != ' ' and board[5][0] != ' ' and board[6][0] != ' ':
+			return True
+		else:
 			return False
-		row = 6
-		while(row >= 0):
-			row -= 1
-			if board[column][0] == ' ' and board[column][row] == ' ':
-				board[column][row] = piece
-				return True
 
 #Check if there are four pieces in a row
 #If yes, return true
 #Else, return false				
 	def CheckWin(self, player):
-		print('CheckWin')
 		if player == 1:
 			piece = 'X'
 		elif player == 2:
