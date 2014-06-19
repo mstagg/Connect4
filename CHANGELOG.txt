@@ -21,4 +21,9 @@ v 0.04
 v 0.04.01
 6/19/2014
 
-*fixed minor bugs for when player gets first turn
+*Fixed minor bug when player goes first
+
+v 0.04.02
+6/19/2014
+
+*Fixed major bug involving negative indexes in CheckWin function

@@ -48,6 +48,60 @@ class Board:
 		else:
 			return False
 
+#Checks if a given board slot is equal to another adjacent board slot in a given direction
+#If they are equal, return True
+#Else, return False
+	def CheckDirection(self, x, y, direction):
+		if direction == 'n':
+			try:
+				if self.board[x][y] == self.board[x][y - 1]:
+					return True
+			except:
+				pass
+		elif direction == 's':
+			try:
+				if self.board[x][y] == self.board[x][y + 1]:
+					return True
+			except:
+				pass
+		elif direction == 'e':
+			try:
+				if self.board[x][y] == self.board[x + 1][y]:
+					return True
+			except:
+				pass
+		elif direction == 'w':
+			try:
+				if self.board[x][y] == self.board[x - 1][y]:
+					return True
+			except:
+				pass
+		elif direction == 'ne':
+			try:
+				if self.board[x][y] == self.board[x + 1][y - 1]:
+					return True
+			except:
+				pass
+		elif direction == 'nw':
+			try:
+				if self.board[x][y] == self.board[x - 1][y - 1]:
+					return True
+			except:
+				pass
+		elif direction == 'se':
+			try:
+				if self.board[x][y] == self.board[x + 1][y + 1]:
+					return True
+			except:
+				pass
+		elif direction == 'sw':
+			try:
+				if self.board[x][y] == self.board[x - 1][y + 1]:
+					return True
+			except:
+				pass
+		return False
+			
 #Check if column is full
 #If yes, return True
 #Else, return False				
@@ -119,6 +173,10 @@ class Board:
 				#Horizontal win condition
 				try:
 					if self.board[x][y] == piece and self.board[x + 1][y] == piece and self.board[x + 2][y] == piece and self.board[x + 3][y] == piece:
+						self.board[x][y] = player
+						self.board[x + 1][y] = player
+						self.board[x + 2][y] = player
+						self.board[x + 3][y] = player
 						return True     
 					else:
 						pass
@@ -128,27 +186,40 @@ class Board:
 				#Vertical win condition
 				try:
 					if self.board[x][y] == piece and self.board[x][y + 1] == piece and self.board[x][y + 2] == piece and self.board[x][y + 3] == piece:
+						self.board[x][y] = player
+						self.board[x][y + 1] = player
+						self.board[x][y + 2] = player
+						self.board[x][y + 3] = player
 						return True     
 					else:
 						pass
 				except:
 					pass
 				
-				#Diagonal down win condition
+				#Diagonal negative win condition
 				try:
 					if self.board[x][y] == piece and self.board[x + 1][y + 1] == piece and self.board[x + 2][y + 2] == piece and self.board[x + 3][y + 3] == piece:
+						self.board[x][y] = player
+						self.board[x + 1][y + 1] = player
+						self.board[x + 2][y + 2] = player
+						self.board[x + 3][y + 3] = player
 						return True     
 					else:
 						pass
 				except:
 					pass
 				
-				#Diagonal up win condition
+				#Diagonal positive win condition
 				try:
-					if self.board[x][y] == piece and self.board[x + 1][y - 1] == piece and self.board[x + 2][y - 2] == piece and self.board[x + 3][y - 3] == piece:
-						return True     
-					else:
-						pass
+					if (y - 3) >= 0:
+						if self.board[x][y] == piece and self.board[x + 1][y - 1] == piece and self.board[x + 2][y - 2] == piece and self.board[x + 3][y - 3] == piece:
+							self.board[x][y] = player
+							self.board[x + 1][y - 1] = player
+							self.board[x + 2][y - 2] = player
+							self.board[x + 3][y - 3] = player
+							return True     
+						else:
+							pass
 				except:
 					pass
 				y += 1
