@@ -53,6 +53,40 @@ def MinMax(Game):
 			heuristic -= 100
 		elif CanLose(TempGame, x) == True:
 			heuristic -= 50
+			
+		# if TempGame.CheckDirection(x, TempGame.GetTop, 'n') == True:
+			# heuristic += 1
+			# if TempGame.CheckDirection(x, TempGame.GetTop - 1, 'n') == True:
+				# heuristic += 1
+		# elif TempGame.CheckDirection(x, TempGame.GetTop, 's') == True:
+			# heuristic += 1
+			# if TempGame.CheckDirection(x, TempGame.GetTop + 1, 's') == True:
+				# heuristic += 1
+		# elif TempGame.CheckDirection(x, TempGame.GetTop, 'e') == True:
+			# heuristic += 1
+			# if TempGame.CheckDirection(x + 1, TempGame.GetTop, 'e') == True:
+				# heuristic += 1
+		# elif TempGame.CheckDirection(x, TempGame.GetTop, 'w') == True:
+			# heuristic += 1
+			# if TempGame.CheckDirection(x - 1, TempGame.GetTop, 'w') == True:
+				# heuristic += 1
+		# elif TempGame.CheckDirection(x, TempGame.GetTop, 'ne') == True:
+			# heuristic += 1
+			# if TempGame.CheckDirection(x + 1, TempGame.GetTop - 1, 'ne') == True:
+				# heuristic += 1
+		# elif TempGame.CheckDirection(x, TempGame.GetTop, 'nw') == True:
+			# heuristic += 1
+			# if TempGame.CheckDirection(x - 1, TempGame.GetTop - 1, 'nw') == True:
+				# heuristic += 1
+		# elif TempGame.CheckDirection(x, TempGame.GetTop, 'se') == True:
+			# heuristic += 1
+			# if TempGame.CheckDirection(x + 1, TempGame.GetTop + 1, 'se') == True:
+				# heuristic += 1
+		# elif TempGame.CheckDirection(x, TempGame.GetTop, 'sw') == True:
+			# heuristic += 1
+			# if TempGame.CheckDirection(x - 1, TempGame.GetTop + 1, 'sw') == True:
+				# heuristic += 1
+		
 		if heuristic < min:
 			min = heuristic
 			choice = x
