@@ -38,11 +38,15 @@ def PlayerAI():
 if order == 0:		
 	while(True):
 		if Player1() == True:
+			Game.PrintBoard()
 			print('Player 1 wins!')
+			raw_input('Press Enter...')
 			break
 		else:
 			if PlayerAI() == True:
+				Game.PrintBoard()
 				print('Player 2 wins!')
+				raw_input('Press Enter...')
 				break
 else:
 	while(True):

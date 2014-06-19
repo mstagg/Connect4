@@ -1,4 +1,4 @@
-Connect4 (v 0.04)
+Connect4 (v 0.04.01)
 
 Created By: Matthew Stagg 5/9/2014
 

@@ -17,3 +17,8 @@ v 0.04
 
 *Added random play order
 *AI class optimized for current turn, but cannot look ahead any turns (YET!)
+
+v 0.04.01
+6/19/2014
+
+*fixed minor bugs for when player gets first turn
