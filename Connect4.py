@@ -4,26 +4,56 @@
 
 import Board
 import AI
+import random
 
-Connect4 = Board.Board()
+Game = Board.Board()
+order = random.randint(0, 1)
 
-#Main Game Play Loop		
-while(True):
-#Player 1 turn
-	Connect4.PrintBoard()
+def Player1():
+	Game.PrintBoard()
 	column = int(raw_input()) - 1
-	Connect4.Move(1, column)
-	if Connect4.CheckWin(1) == True:
-		Connect4.PrintBoard()
-		print('Player 1 Wins!')
-		raw_input('Press Enter...')
-		break
-
-#Player 2 turn
-	#Connect4.PrintBoard()
-	AI.Turn(Connect4)
-	if Connect4.CheckWin(2) == True:
-		Connect4.PrintBoard()
-		print('Player 2 Wins!')
-		raw_input('Press Enter...')
-		break
+	Game.Move(1, column)
+	if Game.CheckWin(1) == True:
+		return True
+	else:
+		return False
+		
+def Player2():
+	Game.PrintBoard()
+	column = int(raw_input()) - 1
+	Game.Move(2, column)
+	if Game.CheckWin(2) == True:
+		return True
+	else:
+		return False
+		
+def PlayerAI():
+	Game.Move(2, AI.MinMax(Game))
+	if Game.CheckWin(2) == True:
+		return True
+	else:
+		return False
+		
+#Main Game Play Loop
+if order == 0:		
+	while(True):
+		if Player1() == True:
+			print('Player 1 wins!')
+			break
+		else:
+			if PlayerAI() == True:
+				print('Player 2 wins!')
+				break
+else:
+	while(True):
+		if PlayerAI() == True:
+				Game.PrintBoard()
+				print('Player 2 wins!')
+				raw_input('Press Enter...')
+				break
+		else:
+			if Player1() == True:
+				Game.PrintBoard()
+				print('Player 1 wins!')
+				raw_input('Press Enter...')
+				break

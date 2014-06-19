@@ -11,3 +11,9 @@ v 0.03
 *Added capability to play against (non-optimized) computer AI
 *Console no longer autocloses at end of game
 *Minor tweaks and bugfixes in Board class
+
+v 0.04
+6/19/2014
+
+*Added random play order
+*AI class optimized for current turn, but cannot look ahead any turns (YET!)
